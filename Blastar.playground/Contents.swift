@@ -211,6 +211,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         pauseLabel.fontSize = 24
         pauseLabel.zPosition = 1
         
+        gameOverLabel.position.x = 1
+        
         player = self.childNode(withName: "player") as! SKSpriteNode
         player.name = "Player"
         player.anchorPoint = CGPoint(x: 0.5, y: 0.5)
@@ -296,7 +298,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             
             scoreLabel.text = "Score: \(score)"
-            print(secondBody.node?.hp)
             firstBody.node?.removeFromParent()
             
         } else if firstBody.node?.name == "Beachball" && secondBody.node?.name == "Ground" {
